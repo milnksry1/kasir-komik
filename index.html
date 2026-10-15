@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manga District | Kasir Komik & Manhwa</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <div class="brand">
+      <div class="brand-icon">MD</div>
+      <div>
+        <h1>MANGA DISTRICT</h1>
+        <p>Comic & Manhwa Store</p>
+      </div>
+    </div>
+    <span class="status">● SISTEM KASIR</span>
+  </header>
+
+  <main class="container">
+    <section class="welcome">
+      <div>
+        <p class="eyebrow">POINT OF SALE</p>
+        <h2>Kasir Toko Buku</h2>
+        <p>Kelola transaksi komik dan manhwa dengan mudah.</p>
+      </div>
+      <div class="date" id="tanggal"></div>
+    </section>
+
+    <section class="stats">
+      <article class="stat-card">
+        <span>Total Produk</span>
+        <strong id="jumlahProduk">0</strong>
+      </article>
+      <article class="stat-card">
+        <span>Item di Keranjang</span>
+        <strong id="jumlahKeranjang">0</strong>
+      </article>
+      <article class="stat-card">
+        <span>Total Transaksi</span>
+        <strong id="jumlahTransaksi">0</strong>
+      </article>
+    </section>
+
+    <div class="workspace">
+      <section class="panel products-panel">
+        <div class="panel-heading">
+          <div>
+            <h2>Daftar Produk</h2>
+            <p>Pilih buku yang ingin dibeli.</p>
+          </div>
+        </div>
+
+        <input
+          id="pencarian"
+          type="search"
+          placeholder="Cari judul komik atau manhwa..."
+          aria-label="Cari produk"
+        >
+
+        <div class="filter">
+          <button class="filter-btn active" data-filter="Semua">Semua</button>
+          <button class="filter-btn" data-filter="Komik">Komik</button>
+          <button class="filter-btn" data-filter="Manhwa">Manhwa</button>
+        </div>
+
+        <div id="daftarProduk" class="product-list"></div>
+      </section>
+
+      <section class="panel cart-panel">
+        <div class="panel-heading">
+          <div>
+            <h2>Keranjang Belanja</h2>
+            <p>Periksa pesanan pelanggan.</p>
+          </div>
+          <button id="kosongkanKeranjang" class="text-btn">
+            Kosongkan
+          </button>
+        </div>
+
+        <div id="daftarKeranjang" class="cart-list">
+          <div class="empty">
+            <span>🛒</span>
+            <p>Keranjang masih kosong.</p>
+            <small>Pilih produk untuk memulai transaksi.</small>
+          </div>
+        </div>
+
+        <div class="summary">
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <strong id="subtotal">Rp0</strong>
+          </div>
+          <div class="summary-row">
+            <span>Diskon (%)</span>
+            <input
+              id="diskon"
+              type="number"
+              min="0"
+              max="100"
+              value="0"
+              aria-label="Diskon dalam persen"
+            >
+          </div>
+          <div class="summary-row total-row">
+            <span>Total Bayar</span>
+            <strong id="total">Rp0</strong>
+          </div>
+
+          <label for="namaPelanggan">Nama pelanggan</label>
+          <input id="namaPelanggan" type="text" placeholder="Nama pelanggan">
+
+          <label for="pembayaran">Uang pembayaran (Rp)</label>
+          <input
+            id="pembayaran"
+            type="number"
+            min="0"
+            step="1"
+            placeholder="Masukkan uang pembayaran"
+          >
+
+          <div class="change-box">
+            <span>Kembalian</span>
+            <strong id="kembalian">Rp0</strong>
+          </div>
+
+          <button id="prosesTransaksi" class="checkout-btn">
+            Proses Pembayaran
+          </button>
+          <p id="pesan" class="message" role="status"></p>
+        </div>
+      </section>
+    </div>
+
+    <section class="panel history-panel">
+      <div class="panel-heading">
+        <div>
+          <h2>Riwayat Transaksi</h2>
+          <p>Transaksi yang berhasil di sesi ini.</p>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Pelanggan</th>
+              <th>Waktu</th>
+              <th>Total</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="riwayatTransaksi">
+            <tr>
+              <td colspan="5" class="empty-cell">Belum ada transaksi.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Manga District — Sistem Kasir Toko Komik & Manhwa</p>
+  </footer>
+</body>
+</html>
